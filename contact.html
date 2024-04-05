@@ -109,8 +109,13 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
+            <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+            action="https://script.google.com/macros/s/AKfycbw9TlwDcp4Nr_5jlgOA6XMkraffkzQi27s5FV9V5AuDUK9kgRaMuf9mi2f7nS2N5O1C/exec">
+              <!-- change the form action to your script url -->
+
+              <div class="form-elements">
+
+                <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="성함" required>
                 </div>
@@ -118,24 +123,31 @@
                   <input type="email" class="form-control" name="email" id="email" placeholder="이메일" required>
                 </div>
               </div>
-              <div class="form-group mt-3">
+                <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="제목" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="메시지" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">로딩</div>
-                <div class="error-message"></div>
-                <div class="sent-message">메시지 전달 됐습니다</div>
-              </div>
-              <div class="text-center"><button type="submit">보내기</button></div>
-            </form>
+                <textarea id="message" class="form-control" name="message" rows="5" placeholder="메시지" required></textarea>
 
-          </div>
+              </div>
+              <div class="form-group mt-3">
+                <input id="honeypot" class="form-control" type="text" name="honeypot" value="" placeholder="스팸 차단 위해 이 공간은 비워주세요"/>
+              </div>
 
+              </div>
+
+              <!-- Customise the Thankyou Message People See when they submit the form: -->
+              <div class="thankyou_message" style="display:none;">
+                <h2><em>Thanks</em> for contacting us!
+                  We will get back to you soon!</h2>
+              </div>
+              <br>
+              <div class="align-start text-center"><button class="btn btn-primary" type="submit">보내기</button></div>
+
+          </form>
         </div>
 
+      </div>
       </div>
     </section><!-- End Contact Section -->
 
@@ -168,6 +180,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 </body>
 
 </html>
